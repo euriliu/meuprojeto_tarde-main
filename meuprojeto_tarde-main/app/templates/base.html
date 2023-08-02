@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+  <title>{{title}}</title>
+
+</head>
+<body>
+  <header>
+    <h1>Meu Portfólio</h1>
+  </header>
+  
+  <nav>
+    <a href="/">Início</a>
+    <a href="projetos">Projetos</a>
+    <a href="sobre">Sobre Mim</a>
+    <a href="contato">Contato</a>
+  </nav>
+  {% block conteudo %}
+
+  {% endblock %}
+
+  <footer>
+    <p>Todos os direitos reservados &copy; 2023 - Valtemir Procópio</p>
+  </footer>
+</body>
+</html>
