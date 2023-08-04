@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+
+  <h2>Entre em contato</h2>
+  <br>
+  {% with mensagens = get_flashed_messages() %}
+  {% if mensagens %}
+    {% for mensagem in mensagens %}
+      {{ mensagem }}
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+
+  <form action="" method="post">
+    {{formulario.csrf_token}}
+    <label for="nome">Nome:</label>
+    {{formulario.nome}}
+
+    <label for="email">Email:</label>
+    {{formulario.email}}
+
+    <label for="telefone">Telefone:</label>
+    {{formulario.telefone}}
+
+    <label for="conteudo">Conteúdo:</label>
+    {{formulario.conteudo}}
+
+    {{formulario.enviar}}
+  </form>
+
+{% endblock %}
