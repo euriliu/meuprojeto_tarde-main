@@ -9,9 +9,15 @@
     {% for mensagem in mensagens %}
       {{ mensagem }}
     {% endfor %}
-  {% endif %}
-{% endwith %}
-
+    {% endif %}
+    {% endwith %}
+    {%if dados_formulario%}
+        <p>dados_formulario:</p>
+        <p>Nome: {{dados_formulario.nome}}</p>
+        <p>Email: {{dados_formulario.email}}</p>
+        <p>Telefone: {{dados_formulario.telefone}}</p>
+        <p>Conteudo: {{dados_formulario.conteudo}}</p>
+    {% endif %}
   <form action="" method="post">
     {{formulario.csrf_token}}
     <label for="nome">Nome:</label>
@@ -28,5 +34,13 @@
 
     {{formulario.enviar}}
   </form>
+
+  {% if formulario.nome.data %}
+  <ul class="errors">
+  {% for data in formulario.nome.data %}
+      <li>{{ data }}</li>
+  {% endfor %}
+  </ul>
+{% endif %}
 
 {% endblock %}

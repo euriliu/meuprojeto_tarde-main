@@ -26,10 +26,17 @@ Quarto passo: instalar o flask
 ```bash
 pip install flask
 ```
-
+Quinto passo: para instalar as dependencias desse projeto, use o comando a baixo:
+```bash
+pip install -r requeriments.txt
+```
+Sexto passo: Se vc aprimorou o projeto, contribua adicionando as dependencias que ultilizou com  comando a baixo:
+```bash
+pip freeze > requirements.txt
+```
 ## Autores
 
-- [@valtemirp](https://www.github.com/valtemirp)
+- [@eduyu_u](https://www.github.com/valtemirp)
 - [@duda-nogueir](https://www.github.com/duda-nogueir)
 
 - [@byanka-policiano](https://www.github.com/byanka-policiano)
@@ -46,5 +53,5 @@ pip install flask
 ## Licença
 
 [MIT](https://choosealicense.com/licenses/mit/)
-Escrito por Valtemir Procópio
+Escrito por Eduardo Vinicius
 
