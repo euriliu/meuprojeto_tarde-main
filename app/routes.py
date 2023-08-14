@@ -29,7 +29,13 @@ def contato():
 
 
     return render_template('contato.html', title = 'contato', formulario = formulario, dados_formulario = dados_formulario)
+
 @app.route('/projetos')
 def projeto():
     return render_template('projeto.html', title ='Projetos')
+
+
+@app.route('/teste')
+def teste():
+    return render_template('teste.html', title = 'Teste')
 

@@ -1,23 +1,37 @@
 {% extends "base.html" %}
 
 {% block conteudo %}
-<section id="projetos">
+<section id="projetos" class="container mt-4">
     <h2>Meus Projetos</h2>
-    <div class="projeto">
-        <h3>Projeto 1</h3>
-        <p>Descrição do Projeto 1...</p>
-        <a href="#">Ver Detalhes</a>
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Projeto 1</h3>
+                    <p class="card-text">Descrição do Projeto 1...</p>
+                    <a href="#" class="btn btn-primary">Ver Detalhes</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Projeto 2</h3>
+                    <p class="card-text">Descrição do Projeto 2...</p>
+                    <a href="#" class="btn btn-primary">Ver Detalhes</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Projeto 3</h3>
+                    <p class="card-text">Descrição do Projeto 3...</p>
+                    <a href="#" class="btn btn-primary">Ver Detalhes</a>
+                </div>
+            </div>
+        </div>
+        <!-- Adicione mais projetos aqui -->
     </div>
-    <div class="projeto">
-        <h3>Projeto 2</h3>
-        <p>Descrição do Projeto 2...</p>
-        <a href="#">Ver Detalhes</a>
-    </div>
-    <div class="projeto">
-        <h3>Projeto 3</h3>
-        <p>Descrição do Projeto 3...</p>
-        <a href="#">Ver Detalhes</a>
-    </div>
-    <!-- Adicione mais projetos aqui -->
 </section>
 {% endblock %}
