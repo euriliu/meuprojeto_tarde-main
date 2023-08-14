@@ -34,6 +34,7 @@ Sexto passo: Se vc aprimorou o projeto, contribua adicionando as dependencias qu
 ```bash
 pip freeze > requirements.txt
 ```
+
 ## Autores
 
 - [@eduyu_u](https://www.github.com/valtemirp)
