@@ -7,9 +7,12 @@
 
   {% with mensagens = get_flashed_messages() %}
     {% if mensagens %}
-      <div class="alert alert-info">
         <ul class="list-unstyled">
           {% for mensagem in mensagens %}
+        </div>
+        <div class="alert alert-success" role="alert">
+        
+        </div>
             <li>{{ mensagem }}</li>
           {% endfor %}
         </ul>
@@ -33,25 +36,25 @@
     {{ formulario.csrf_token }}
     <div class="form-group">
       <label for="nome">Nome:</label>
-      {{ formulario.nome(class="form-control") }}
+      {{ formulario.nome(class="form-control", placeholder = "Digite seu email") }}
     </div>
 
     <div class="form-group">
       <label for="email">Email:</label>
-      {{ formulario.email(class="form-control") }}
+      {{ formulario.email(class="form-control", placeholder = "name@email.com") }}
     </div>
 
     <div class="form-group">
       <label for="telefone">Telefone:</label>
-      {{ formulario.telefone(class="form-control") }}
+      {{ formulario.telefone(class="form-control", placeholder ="digite seu telefone aqui" ) }}
     </div>
 
     <div class="form-group">
       <label for="conteudo">Conteúdo:</label>
-      {{ formulario.conteudo(class="form-control") }}
+      {{ formulario.conteudo(class="form-control", row ="3", placeholder = "Digite sua mensagem") }}
     </div>
-
-    {{ formulario.enviar(class="btn btn-primary") }}
+      
+    {{ formulario.enviar(class="btn btn-Success") }}
   </form>
 
   {% if formulario.nome.data %}

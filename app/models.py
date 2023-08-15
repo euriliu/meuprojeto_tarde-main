@@ -9,3 +9,14 @@ class ContatoModels(db.Model):
     def __repr__(self):
         return f'<Contato{self.nome}>'
 
+class CadastroModels(db.Model):
+    id = db.Column(db.Integer, primary_key = True)
+    nome = db.Column(db.String(40), nullable=False)
+    email = db.Column(db.String(40), nullable=False, unique = True)
+    senha = db.Column(db.String(12), nullable=False)
+    contato = db.Column(db.String(10), nullable=False)
+    
+
+    def __repr__(self):
+        return 'Cadastro'
+

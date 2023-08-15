@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <h2 class="mb-4">Cadastro</h2>
+      
+      {% with mensagens = get_flashed_messages() %}
+      {% if mensagens %}
+          <ul class="list-unstyled">
+            {% for mensagem in mensagens %}
+          </div>
+          <div class="alert alert-success" role="alert">
+          
+          </div>
+              <li>{{ mensagem }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+    {% endwith %}
+
+      <form method="post">
+
+        {{ cadastro.csrf_token }}
+        <div class="form-group">
+          <label for="nome">Nome:</label>
+          {{ cadastro.nome(class="form-control", placeholder="Digite aqui seu nome") }} 
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          {{ cadastro.email(class="form-control", placeholder = "name@email.com") }} 
+        </div>
+        <div class="form-group">
+          <label for="contato">Contato:</label>
+          {{ cadastro.contato(class="form-control", placeholder="Digite seu telefone") }} 
+        </div>
+        <div class="form-group">
+          <label for="senha">Senha:</label>
+          {{ cadastro.senha(class="form-control", placeholder="Digite aqui sua senha") }} 
+        </div>
+        <button type="submit" class="btn btn-Success">Cadastrar</button>
+      </form>
+    </div>
+  </div>
+{% endblock %}
