@@ -1,10 +1,26 @@
 {% extends 'base.html' %}
 
 {% block conteudo %}
+
+{% with mensagens = get_flashed_messages() %}
+{% if mensagens %}
+    <ul class="list-unstyled">
+      {% for mensagem in mensagens %}
+    </div>
+    <div class="alert alert-success" role="alert">
+    
+    </div>
+        <li>{{ mensagem }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endif %}
+{% endwith %}
+
   <div class="row justify-content-center">
     <div class="col-md-6">
       <h2 class="mb-4">Login</h2>
-      <form>
+      <form action="{{ url_for('login') }}" method ="post" class="needs-validation" novalidate>
         <div class="form-group">
           <label for="email">Email:</label>
           <input type="email" class="form-control" id="email" name="email" required>

@@ -1,5 +1,5 @@
 from app import app, db
-from flask import render_template,url_for,flash,redirect,request
+from flask import render_template,url_for,flash,redirect,request,session
 from app.forms import Contato, Cadastro
 from app.models import ContatoModels, CadastroModels
 import time
@@ -38,21 +38,37 @@ def projeto():
 def cadastro():
     cadastro=Cadastro()
     if cadastro.validate_on_submit():
-        flash('Cadastrado com sucesso!!')
-        nome = cadastro.nome.data
-        email = cadastro.email.data
-        senha = cadastro.senha.data
-        contato = cadastro.contato.data
-        novo_cadastro = CadastroModels(nome = nome, email = email, senha = senha, contato = contato)
-        db.session.add(novo_cadastro)
-        db.session.commit()
-
+        try:
+            flash('Cadastrado com sucesso!!')
+            nome = cadastro.nome.data
+            email = cadastro.email.data
+            senha = cadastro.senha.data
+            contato = cadastro.contato.data
+            novo_cadastro = CadastroModels(nome = nome, email = email, senha = senha, contato = contato)
+            db.session.add(novo_cadastro)
+            db.session.commit()
+        
+        except Exception as e:
+            flash('ocorreu um erro ao cadastrar! Entre em contato com o suporte!')
+            print(str(e))
 
     return render_template('cadastro.html', title = 'Cadastro', cadastro = cadastro)
 
 
-@app.route('/login')
+@app.route('/login', methods=['GET', 'POST'])
 def login():
+    if request.method == 'POST':
+        email= request.form.get('email')
+        senha= request.form.get('senha')
+        user = CadastroModels.query.filter_by(email = email, senha = senha).first()
+        if user and user.senha == senha:
+            session['email'] = user.id
+            flash('seja bem vindo')
+            time.sleep(2)
+            return redirect(url_for('index'))
+        else:
+            flash('senha ou email incorreto')
+
     return render_template('login.html', title ='Login')
 
 
