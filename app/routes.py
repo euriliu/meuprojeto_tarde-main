@@ -1,7 +1,8 @@
-from app import app, db
+from app import app, db, bcrypt
 from flask import render_template,url_for,flash,redirect,request,session
 from app.forms import Contato, Cadastro
 from app.models import ContatoModels, CadastroModels
+from flask_bcrypt import check_password_hash
 import time
 
 @app.route('/')
@@ -44,7 +45,9 @@ def cadastro():
             email = cadastro.email.data
             senha = cadastro.senha.data
             contato = cadastro.contato.data
-            novo_cadastro = CadastroModels(nome = nome, email = email, senha = senha, contato = contato)
+            hash_senha = bcrypt.generate_password_hash(senha).decode('utf-8')
+           
+            novo_cadastro = CadastroModels(nome = nome, email = email, senha = hash_senha, contato = contato)
             db.session.add(novo_cadastro)
             db.session.commit()
         
@@ -58,18 +61,27 @@ def cadastro():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-        email= request.form.get('email')
-        senha= request.form.get('senha')
-        user = CadastroModels.query.filter_by(email = email, senha = senha).first()
-        if user and user.senha == senha:
-            session['email'] = user.id
-            flash('seja bem vindo')
+        email = request.form.get('email')
+        senha = request.form.get('senha')
+        user = CadastroModels.query.filter_by(email=email).first()
+        
+        if user and check_password_hash(user.senha, senha):
+            session['email'] = user.email
+            session['nome'] = user.nome
+            flash('Seja bem vindo!')
             time.sleep(2)
             return redirect(url_for('index'))
         else:
-            flash('senha ou email incorreto')
+            flash('Senha ou email incorreto')
+    
+    return render_template('login.html', title='Login')
 
-    return render_template('login.html', title ='Login')
 
 
+
+@app.route('/sair')
+def sair():
+    session.pop('email',None)
+    session.pop('nome',None)
+    return redirect(url_for('login'))
 
