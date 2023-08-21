@@ -88,6 +88,9 @@ def editar():
         senha = request.form.get('senha')
         usuario.senha = bcrypt.generate_password_hash(senha).decode('utf-8')
         db.session.commit()
+        session['email'] = usuario.email
+        session['nome'] = usuario.nome
+        session['senha'] = usuario.senha
         flash('Seus dados foram atualizados com sucesso!')
     return render_template('editar.html', titulo = 'Editar', usuario = usuario)
 
