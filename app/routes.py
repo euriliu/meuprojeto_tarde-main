@@ -77,6 +77,19 @@ def login():
     return render_template('login.html', title='Login')
 
 
+@app.route('/editar', methods=['GET', 'POST'])
+def editar():
+    if 'email' not in session:
+        return redirect(url_for('login'))
+    usuario = CadastroModels.query.filter_by(email = session['email']).first()
+    if request.method == 'POST':
+        usuario.nome = request.form.get('nome')
+        usuario.email = request.form.get('email')
+        senha = request.form.get('senha')
+        usuario.senha = bcrypt.generate_password_hash(senha).decode('utf-8')
+        db.session.commit()
+        flash('Seus dados foram atualizados com sucesso!')
+    return render_template('editar.html', titulo = 'Editar', usuario = usuario)
 
 
 @app.route('/sair')
