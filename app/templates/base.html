@@ -39,11 +39,11 @@
           {% if session['email'] %}
   <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Olá {{ session['nome'] }}
+      Olá {{ session['nome'].capitalize() }}
     </a>
     <div class="dropdown-menu" aria-labelledby="userDropdown">
       <div class="dropdown-divider"></div>
-      <p class="dropdown-item"><strong>Nome:</strong> {{ session['nome'] }}</p>
+      <p class="dropdown-item"><strong>Nome:</strong> {{ session['nome'].capitalize() }}</p>
       <p class="dropdown-item"><strong>Email:</strong> {{ session['email'] }}</p>
       <p class="dropdown-item"><strong>Rua:</strong> {{ session['rua'] }}</p>
       <p class="dropdown-item"><strong>Cidade:</strong> {{ session['cidade'] }}</p>
