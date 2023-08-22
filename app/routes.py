@@ -45,9 +45,15 @@ def cadastro():
             email = cadastro.email.data
             senha = cadastro.senha.data
             contato = cadastro.contato.data
+            cpf = cadastro.cpf.data
+            rua = cadastro.rua.data
+            num = cadastro.num.data
+            bairro = cadastro.bairro.data
+            cidade = cadastro.cidade.data
+            uf = cadastro.uf.data
             hash_senha = bcrypt.generate_password_hash(senha).decode('utf-8')
-           
-            novo_cadastro = CadastroModels(nome = nome, email = email, senha = hash_senha, contato = contato)
+            
+            novo_cadastro = CadastroModels(nome = nome, email = email, senha = hash_senha, contato = contato, cpf =  cpf, rua = rua, num = num, bairro=bairro, cidade = cidade, uf = uf)
             db.session.add(novo_cadastro)
             db.session.commit()
         
@@ -68,6 +74,7 @@ def login():
         if user and check_password_hash(user.senha, senha):
             session['email'] = user.email
             session['nome'] = user.nome
+            
             flash('Seja bem vindo!')
             time.sleep(2)
             return redirect(url_for('index'))
@@ -87,17 +94,44 @@ def editar():
         usuario.email = request.form.get('email')
         senha = request.form.get('senha')
         usuario.senha = bcrypt.generate_password_hash(senha).decode('utf-8')
-        db.session.commit()
         session['email'] = usuario.email
         session['nome'] = usuario.nome
         session['senha'] = usuario.senha
+        session['cpf'] = usuario.cpf
+        session['contato'] = usuario.contato
+        session['rua'] = usuario.rua
+        session['num'] = usuario.num
+        session['bairro'] = usuario.bairro
+        session['cidade'] = usuario.cidade
+        session['uf'] = usuario.uf
+        db.session.commit()
+        
         flash('Seus dados foram atualizados com sucesso!')
     return render_template('editar.html', titulo = 'Editar', usuario = usuario)
+
+
+@app.route('/excluir_conta', methods=['GET'])
+def excluir_conta():
+    if 'email' not in session:
+        return redirect(url_for('login'))
+    usuario = CadastroModels.query.filter_by(email= session['email']).first()
+    db.session.delete(usuario)
+    db.session.commit()
+    session.clear()
+    flash('adeus ... queria dizer que foi bom ... mas não foi, muleke insuportavel')
+    return redirect(url_for('cadastro'))
+
+
+
+
+
 
 
 @app.route('/sair')
 def sair():
     session.pop('email',None)
     session.pop('nome',None)
+    session.pop('senha',None)
+    session.pop('contato',None)
     return redirect(url_for('login'))
 

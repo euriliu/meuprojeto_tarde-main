@@ -36,10 +36,34 @@
           {{ cadastro.contato(class="form-control", placeholder="Digite seu telefone") }} 
         </div>
         <div class="form-group">
+          <label for="cpf">CPF:</label>
+          {{ cadastro.cpf(class="form-control", placeholder="Digite aqui seu CPF") }} 
+        </div>
+        <div class="form-group">
+          <label for="rua">Rua:</label>
+          {{ cadastro.rua(class="form-control", placeholder="Digite aqui sua rua") }} 
+        </div>
+        <div class="form-group">
+          <label for="num">N°:</label>
+          {{ cadastro.num(class="form-control", placeholder="Digite aqui o num da casa") }} 
+        </div>
+        <div class="form-group">
+          <label for="bairro">Bairro:</label>
+          {{ cadastro.bairro(class="form-control", placeholder="Digite aqui seu bairro") }} 
+        </div>
+        <div class="form-group">
+          <label for="cidade">Cidade:</label>
+          {{ cadastro.cidade(class="form-control", placeholder="Digite aqui sua cidade") }} 
+        </div>
+        <div class="form-group">
+          <label for="uf">Estado:</label>
+          {{ cadastro.uf(class="form-control", placeholder="Digite aqui seu Estado") }} 
+        </div>
+        <div class="form-group">
           <label for="senha">Senha:</label>
           {{ cadastro.senha(class="form-control", placeholder="Digite aqui sua senha") }} 
         </div>
-        <button type="submit" class="btn btn-Success">Cadastrar</button>
+        {{ cadastro.enviar(class="btn btn-primary")}}
       </form>
     </div>
   </div>

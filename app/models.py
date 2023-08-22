@@ -15,7 +15,12 @@ class CadastroModels(db.Model):
     email = db.Column(db.String(40), nullable=False, unique = True)
     senha = db.Column(db.String(12), nullable=False)
     contato = db.Column(db.String(10), nullable=False)
-    
+    cpf = db.Column(db.String(11), nullable=False, unique = True)
+    rua = db.Column(db.String(30), nullable=False)
+    num = db.Column(db.String(30), nullable=False)
+    bairro = db.Column(db.String(30), nullable=False)
+    cidade = db.Column(db.String(30), nullable=False)
+    uf = db.Column(db.String(30), nullable=False)
 
     def __repr__(self):
         return 'Cadastro'

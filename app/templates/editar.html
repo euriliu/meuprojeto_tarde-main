@@ -23,8 +23,36 @@
                 <input type="email" class="form-control" name = 'email' value="{{session['email']}}">
             </div>
             <div class="col-md-6 mb-3">
+                <label for="cpf">CPF</label>
+                <input type="cpf" class="form-control" name = 'cpf' value="{{session['cpf']}}">
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="contato">Contato</label>
+                <input type="contato" class="form-control" name = 'contato' value="{{session['contato']}}">
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="rua">Rua</label>
+                <input type="rua" class="form-control" name = 'rua' value="{{session['rua']}}">
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="num">Numero</label>
+                <input type="num" class="form-control" name = 'num' value="{{session['num']}}">
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="bairro">Bairro</label>
+                <input type="bairro" class="form-control" name = 'bairro' value="{{session['bairro']}}">
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="cidade">Cidade</label>
+                <input type="cidade" class="form-control" name = 'cidade' value="{{session['cidade']}}">
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="uf">Estado</label>
+                <input type="uf" class="form-control" name = 'uf' value="{{session['uf']}}">
+            </div>
+            <div class="col-md-6 mb-3">
                 <label for="senha">Senha</label>
-                <input type="password" class="form-control" name = 'senha' value="{{session['senha']}}">
+                <input type="password" class="form-control" name = 'senha' >
             </div>
         </div>
         <button class="btn btn-primary" type="submit">Salvar</button>

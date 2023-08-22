@@ -45,9 +45,12 @@
       <div class="dropdown-divider"></div>
       <p class="dropdown-item"><strong>Nome:</strong> {{ session['nome'] }}</p>
       <p class="dropdown-item"><strong>Email:</strong> {{ session['email'] }}</p>
+      <p class="dropdown-item"><strong>Rua:</strong> {{ session['rua'] }}</p>
+      <p class="dropdown-item"><strong>Cidade:</strong> {{ session['cidade'] }}</p>
+      <p class="dropdown-item"><strong>Telefone:</strong> {{ session['contato'] }}</p>
       <div class="dropdown-divider"></div>
       <a class="dropdown-item" href="editar">Editar</a>
-      <a class="dropdown-item" href="#">Excluir</a>
+      <a class="dropdown-item" href="excluir_conta" onclick="return confirm('Tem certeza ?')">Excluir conta</a>
       <div class="dropdown-divider"></div>
       <a class="dropdown-item" href="sair">Sair</a>
     </div>
