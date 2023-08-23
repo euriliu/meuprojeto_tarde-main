@@ -35,6 +35,10 @@ def projeto():
         
     return render_template('projeto.html', title ='Projetos')
 
+@app.route('/projeto3')
+def projeto3():
+    return render_template('projeto3.html', title = 'projeto3')
+
 @app.route('/projeto2')
 def projeto2():
     return render_template('projeto2.html', title = 'projeto2')

@@ -38,6 +38,19 @@
                 </div>
             </div>
         </div>
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="https://miro.medium.com/max/1400/1*oSqY5DZvzW3NHZKTKRW1Fg.png" class="card-img-top" alt="Projeto 3">
+                <div class="card-body">
+                    <h3 class="card-title">Menu Flutuante</h3>
+                    <p class="card-text">Uma forma de deixar seu site mais pratico e podera mostra ao usuario suas informações mais rapidamente</p>
+                    <a href="
+                    {% if session['email'] %} 
+                        {{ url_for('projeto3') }}  
+                    {% else %} 
+                        {{url_for('login')}} 
+                    {% endif %} 
+                    " class="btn btn-primary">Ver Mais</a>
                 </div>
             </div>
         </div>
