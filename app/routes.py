@@ -32,8 +32,16 @@ def contato():
 
 @app.route('/projetos')
 def projeto():
+        
     return render_template('projeto.html', title ='Projetos')
 
+@app.route('/projeto2')
+def projeto2():
+    return render_template('projeto2.html', title = 'projeto2')
+
+@app.route('/projeto1')
+def projeto1():
+    return render_template('projeto1.html', title = 'Projeto1')
 
 @app.route('/cadastro', methods =['GET', 'POST'])
 def cadastro():

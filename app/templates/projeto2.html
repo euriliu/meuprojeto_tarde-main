@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block conteudo %}
+<section id="projeto-destruicao-global" class="container mt-4">
+    <h2>Iniciando em Banco de Dados</h2>
+    <div class="row">
+        <div class="col-md-6 mb-4 text-center">
+            <img src="https://th.bing.com/th/id/R.6a686111b536eef5abf1a135e639c461?rik=vPtOQUrM2uR5TQ&pid=ImgRaw&r=0" class="img-fluid" alt="Banco de Dados">
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Instalação</h3>
+                    <p class="card-text">Preparar um banco de dados não é uma tarefa complicada tendo como base os requisitos de utilizar o Flask e HTML para criar uma máquina virtual.</p>
+                    <a href="projeto1" class="btn btn-danger">Como instalar o Flask</a>
+                    <p class="card-text">Após atender os requisitos, digite o seguinte comando:</p>
+                    <p class="card-text">pip install SQLAlchemy</p>
+                    <p class="card-text">Com o SQLAlchemy instalado, você pode começar a usá-lo para interagir com bancos de dados relacionais. Por exemplo, aqui está um pequeno exemplo de como criar uma tabela usando o SQLAlchemy:</p>
+                    <p class="card-text">Agora digite os seguintes comandos em seu terminal:</p>
+                    <ul>
+                        <li>flask db init</li>
+                        <li>flask db migrate -m "db_criar_banco"</li>
+                        <li>flask db upgrade</li>
+                    </ul>
+                    <p class="card-text">Isso ativará seu banco de dados e permitirá que você cadastre informações nele.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
